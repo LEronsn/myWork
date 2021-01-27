@@ -1,0 +1,287 @@
+html {
+    color: white;
+}
+
+body {
+    margin: 0;
+    background-color: #333;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+#release {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#release td, #release th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    color: black;
+}
+
+#release tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#release tr {
+    background-color: lightgray;
+}
+
+#release tr:hover {
+    background-color: #ddd;
+}
+
+#release th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.headerWrapper {
+    height: 150px;
+    float: left;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.avatar-wrapper {
+    float: left;
+    margin-right: 12px;
+    margin-left: 30px;
+}
+
+.another-wrapper {
+    float: left;
+}
+
+.name-wrapper {
+    float: left;
+    color: white;
+    font: bold 18px/28px Alegreya;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    height: 28px;
+    display: flex;
+    margin-left: 15px;
+    margin-top: 12px;
+}
+
+.wrapper {
+    width: 1280px;
+    display: block;
+    margin: 0 auto;
+}
+
+.GM {
+    background-color: #333;
+}
+
+.statsWrapper {
+    height: 70px;
+    width: 460px;
+    float: left;
+    clear: left;
+}
+
+.stat {
+    width: 27px;
+    float: left;
+    display: block;
+    padding: 0 15px;
+    text-align: center;
+    font: bold 15px/28px Alegreya;
+}
+
+.statValue.MU {
+    border-color: rgb(170, 27, 50);
+}
+
+.inputStat {
+    width: 50px;
+    color: white;
+    background: #333;
+    height: 33px;
+    padding-right: 0px;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.sidebarWrapper {
+    width: 363px;
+    float: left;
+    background: #333333;
+    margin-top: 50px;
+    padding-top: 58px;
+    padding-bottom: 12px;
+}
+
+input#myInput {
+    width: 200px;
+    text-align: left;
+    right: auto;
+    position: relative;
+    left: 0;
+    margin-left: 23px;
+    background: transparent;
+    border: 1px solid #826a3e;
+    font-size: 20px;
+    color: white;
+}
+
+.tal_header {
+    color: #826a3e;
+    letter-spacing: .5px;
+}
+
+/*h2.tal_header:before {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 7px;
+    top: 0px;
+    content: "";
+    background: url(./img/D20.svg);
+}*/
+
+h2.tal_header {
+    padding-left: 12px;
+    margin: 19px;
+    padding: 0;
+    padding-left: 45px;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+    position: relative;
+    border-bottom: 1px solid;
+}
+
+li {
+
+    text-align: -webkit-match-parent;
+}
+
+li.talent {
+    padding: 0;
+    border-bottom: 1px solid #d8d8d82c;
+    margin: 20px;
+    list-style-type: none;
+    height: 44px;
+    line-height: 44px;
+    margin-right: 12px;
+    margin-left: 12px;
+    position: relative;
+    white-space: nowrap;
+}
+
+li.talent form.wuerfeln {
+    display: block;
+    position: relative;
+    width: 172px;
+}
+
+input.anzahlWuerfel, input.zuWurfAddieren {
+    width: 50px;
+    background: #333;
+    color: #826a3e;
+    height: 33px;
+    padding-right: 0px;
+    text-align: center;
+    margin-top: 6px;
+    font-size: 20px;
+    font: 500 20px/20px Alegreya Sans;
+    border: none;
+}
+
+span.addIcon, span.multiIcon {
+    color: rgba(255,255,255,.8);
+    font-size: 20px;
+    margin-top: 0px;
+    margin-left: 7px;
+    margin-right: 11px;
+}
+
+button {
+    background: none;
+    color: #826a3e;
+    border: none;
+    cursor: pointer;
+    font: 500 20px/20px Alegreya Sans;
+    letter-spacing: .05em;
+    padding-left: 11px;
+    line-height: 12px;
+    border: none;
+    outline: none;
+}
+
+.imageDice {
+
+    width: 30px;
+    height: 30px;
+    left: 7px;
+    top: 0px;
+}
+
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: #333333;
+    padding: 20px;
+}

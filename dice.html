@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <title>GM Tool</title>
+    <link rel="stylesheet" href="wRaum.css">
+    <script src="./js/jquery.js"></script>
+</head>
+<body class="GM">
+<div class="wrapper">
+    <div>
+        <ul class="navUl">
+            <li class="navLi">Home</li>
+            <li class="navLi"><a href="dice.html">GM Tool</a></li>
+            <!--<li><a href="npc.html">NPC</a></li>
+            <li><a href="about.html">About</a></li>-->
+        </ul>
+    </div>
+    <div class="headerWrapper">
+        <div class="avatar-wrapper">
+            <img src="./img/Anastasius.png" style="float: left" alt="">
+        </div>
+        <div class="another-wrapper">
+            <div class="name-wrapper">Anastasius</div>
+            <div class="statsWrapper">
+                <div class="stat">
+                    <label for="MU">MU</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #ffa500;" value="0" id="MU">
+                </div>
+                <div class="stat">
+                    <label for="KL">KL</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="KL">
+                </div>
+                <div class="stat">
+                    <label for="IN">IN</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: orange;" value="0" ID="IN">
+                </div>
+                <div class="stat">
+                    <label for="CH">CH</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="CH">
+                </div>
+                <div class="stat">
+                    <label for="FF">FF</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: orange;" value="0" id="FF">
+                </div>
+                <div class="stat">
+                    <label for="GE">GE</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="GE">
+                </div>
+                <div class="stat">
+                    <label for="KO">KO</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: orange;" value="0" id="KO">
+                </div>
+                <div class="stat">
+                    <label for="KK">KK</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="KK">
+                </div>
+                <br>
+                <div class="stat">
+                    <label for="LeP">LeP</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="LeP">
+                </div>
+                <div class="stat">
+                    <label for="AE">AE</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: orange;" value="0" id="AE">
+                </div>
+                <div class="stat">
+                    <label for="KE">KE</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="KE">
+                </div>
+                <div class="stat">
+                    <label for="INI">INI</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: orange;" value="0" id="INI">
+                </div>
+                <div class="stat">
+                    <label for="AW">AW</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="AW">
+                </div>
+                <div class="stat">
+                    <label for="SK">SK</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: orange;" value="0" id="SK">
+                </div>
+                <div class="stat">
+                    <label for="ZK">ZK</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: #826a3e;" value="0" id="ZK">
+                </div>
+                <div class="stat">
+                    <label for="GS">GS</label>
+                    <input type="number" class="inputStat" min="0" style="border-color: orange;" value="0" id="GS">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-right">
+        <div class="chatlog">
+            <table class="chat">
+                <tbody>
+                <tr>
+                    <th class="Probe">Probe</th>
+                    <th class="wuerfel">Würfel</th>
+                    <th class="Ergebnis">Ergebnis</th>
+                </tr>
+                <tr>
+                    <td>1 x W20</td>
+                    <td>8</td>
+                    <td>8</td>
+
+                </tr>
+                <tr>
+                    <td>4 x W6</td>
+                    <td>1 | 2 | 5 | 4</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Sinnesschärfe</td>
+                    <td>13 | 15 | 11</td>
+                    <td>Geschafft | QS: 1</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="sidebarWrapper">
+        <input type="text" id="myInput" title="Mit Esc-Taste eingabe löschen" placeholder="Suche..">
+        <script>
+            $("#myInput")
+                .on("focus", function ()  //1 click inside the form folds it together
+                {
+                    //var value = this.value.toLowerCase().trim();
+                    $("#talents li").hide(200);
+                    $("h2.tal_header").removeClass('active');
+                })
+                .on("keyup", function () {
+                    var value = this.value.toLowerCase().trim();
+                    if (value.length > 1) //must be more than 1 key
+                    {
+                        $("#talents li").addClass('show').filter(function () {
+                            return $(this).text().toLowerCase().trim().indexOf(value) == -1;
+                        }).removeClass('show');
+                    } else {
+                        $("#talents li").removeClass('show');
+                    }
+                });
+
+            /*$("#myInput").on("keyup", function () //watch search input
+            {
+                var value = this.value.toLowerCase().trim();
+                if (value.length > 1) //must be more than 1 key
+                {
+                    $("#talents li").addClass('show').filter(function () {
+                        return $(this).text().toLowerCase().trim().indexOf(value) == -1;
+                    }).removeClass('show');
+                } else {
+                    $("#talents li").removeClass('show');
+                }
+            });*/
+        </script>
+        <div id="talents" class="talents-wrapper" slide="roll">
+            <h2 class="tal_header" slide="roll">Würfeln</h2>
+            <li class="talent" slide="roll" style="display: none;">
+                <form class="wuerfeln">
+                    <input type="number" min="1" max="50" value="1" class="anzahlWuerfel" name="augen">
+                    <span class="multiIcon">x</span>
+                    <button class="talentwurf" type="button">W20</button>
+                    <span class="addIcon">+</span>
+                    <input type="number" value="0" class="zuWurfAddieren" name="plus">
+                </form>
+            </li>
+            <li class="talent" slide="roll" style="display: none;">
+                <form class="wuerfeln">
+                    <input type="number" min="1" max="50" value="1" class="anzahlWuerfel" name="augen">
+                    <span class="multiIcon">x</span>
+                    <button class="talentwurf" type="button">W6</button>
+                    <span class="addIcon">+</span>
+                    <input type="number" value="0" class="zuWurfAddieren" name="plus">
+                </form>
+            </li>
+            <li class="talent" slide="roll">
+                <form class="wuerfeln">
+                    <input type="number" min="1" max="50" value="1" class="anzahlWuerfel" name="augen">
+                    <span class="multiIcon">x</span>
+                    <button class="talentwurf" type="button">W10</button>
+                    <span class="addIcon">+</span>
+                    <input type="number" value="0" class="zuWurfAddieren" name="plus">
+                </form>
+            </li>
+            <li class="talent" slide="roll">
+                <form class="wuerfeln">
+                    <input type="number" min="1" max="50" value="1" class="anzahlWuerfel" name="augen">
+                    <span class="multiIcon">x</span>
+                    <button class="talentwurf" type="button">W100</button>
+                    <span class="addIcon">+</span>
+                    <input type="number" value="0" class="zuWurfAddieren" name="plus">
+                </form>
+            </li>
+            <h2 class="tal_header" slide="combat">Waffen</h2>
+            <li name="Schwert" class="talent" slide="combat">
+                <form class="wuerfeln">
+                    <button class="talentwurf" type="button">Schwert</button>
+                </form>
+            </li>
+            <h2 class="tal_header" slide="body">Körpertalente</h2>
+            <li name="Fliegen" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_0">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Fliegen" type="button">Fliegen</button>
+                </form>
+            </li>
+            <li name="Gaukeleien" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_1">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Gaukeleien" type="button">Gaukeleien</button>
+                </form>
+            </li>
+            <li name="Klettern" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_2">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Klettern" type="button">Klettern</button>
+                </form>
+            </li>
+            <li name="Körperbeherrschung " class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_3">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Körperbeherrschung" type="button">Körperbeherrschung</button>
+                </form>
+            </li>
+            <li name="Kraftakt  " class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_4">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Kraftakt" type="button">Kraftakt</button>
+                </form>
+            </li>
+            <li name="Reiten  " class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_5">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Reiten" type="button">Reiten</button>
+                </form>
+            </li>
+            <li name="Schwimmen  " class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_6">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Schwimmen" type="button">Schwimmen</button>
+                </form>
+            </li>
+            <li name="Selbstbeherrschung" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_7">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Selbstbeherrschung" type="button">Selbstbeherrschung</button>
+                </form>
+            </li>
+            <li name="Singen" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_8">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Singen" type="button">Singen</button>
+                </form>
+            </li>
+            <li name="Sinnesschärfe" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_9">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Sinnesschärfe" type="button">Sinnesschärfe</button>
+                </form>
+            </li>
+            <li name="Tanzen" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_10">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Tanzen" type="button">Tanzen</button>
+                </form>
+            </li>
+            <li name="Taschendiebstahl" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_11">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Taschendiebstahl" type="button">Taschendiebstahl</button>
+                </form>
+            </li>
+            <li name="Verbergen" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_12">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Verbergen" type="button">Verbergen</button>
+                </form>
+            </li>
+            <li name="Zechen" class="talent" slide="body">
+                <form class="wuerfeln" buttonid="ID_13">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Zechen" type="button">Zechen</button>
+                </form>
+            </li>
+            <h2 class="tal_header" slide="gesellschaft">Gesellschaftstalente</h2>
+            <li name="Überzeugen" class="talent" slide="gesellschaft">
+                <form class="wuerfeln" buttonid="ID_14">
+                    <input type="number" class="taw" value="0">
+                    <button class="talentwurf" title="Überzeugen" type="button">Überzeugen</button>
+                </form>
+            </li>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="impressum.html">Impressum </a>|
+        <a href="contact.html"> Contact </a>|
+        <a href="home.html"> Release</a>
+    </div>
+    <script>
+        $(document).ready(function () {
+            //Lösche Search Box und schließe alle offenen Talente
+            $(document).on('keydown', function (event) {
+                if (event.key == "Escape") {
+                    $("#talents li").hide(200);
+                    $("h2.tal_header").removeClass('active');
+                    $('#myInput').val("");
+                }
+            });
+
+
+            //Aufklappen der Talente
+            $("h2.tal_header").click(function () {
+                $(this).toggleClass('active');
+                var target = $(this).attr('slide');
+                $('li.talent[slide*=' + target + ']').slideToggle(250);
+                console.log(target);
+                // $('ul[slide*='+target+']').slideToggle(250);
+            });
+
+        });
+    </script>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="wRaum.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <div style="padding:15px">
+        <form action="action_page.php">
+            <a href="dice.html" style="color:#826a3e; font-size: 20px">Zurück</a>
+            <br>
+            <br>
+            <label for="fname" style="color: white">Vorname</label>
+            <input class="inputContact" type="text" id="fname" name="firstname" placeholder="Dein Vorname..">
+            <br>
+            <label for="lname" style="color: white">Nachname</label>
+            <input type="text" id="lname" name="lastname" placeholder="Dein Nachname..">
+            <br>
+            <label for="country" style="color: white">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Deutschland</option>
+                <option value="canada">Österreich</option>
+                <option value="usa">Andere</option>
+            </select>
+            <br>
+            <label for="subject" style="color: white">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Schreib was.." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
